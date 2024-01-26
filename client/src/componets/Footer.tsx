@@ -46,7 +46,7 @@ const Footer = () => {
       <Box>
         <Paper>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3,padding:"24px" }}>
               <Typography variant="h3">FitQuest</Typography>
               <Typography variant="body1">
                 Find your healthy, and your happy.
@@ -55,7 +55,7 @@ const Footer = () => {
                 Start today <ArrowForwardIcon />
               </Button>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6, mt: 4, md: { mt: 0 } }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Box  sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="h5">Product</Typography>
                 {FooterProducts.map((item, index) => (
@@ -84,7 +84,7 @@ const Footer = () => {
           </Box>
 
           <Box sx={{ marginTop: 4 }}>
-            <Typography sx={{ display: 'flex', gap: 2, marginTop: 2 }}>
+            <Typography sx={{ display: 'flex', marginTop: 2 }}>
               <CopyrightIcon />
               2024Fitquest
               {FooterLinks.map((item) => (
@@ -93,7 +93,7 @@ const Footer = () => {
                 </ul>
               ))}
             </Typography>
-            <Box  sx={{ display: 'flex',alignItems:"center", justifyContent: 'center', gap:2, marginTop: 2 }}>
+            <Box  sx={{ display: 'flex',alignItems:"center", justifyContent:'center', gap:2, marginTop: 2 }}>
               {Logos.map((logo) => (
                 <Box key={logo.id}>
                   <Box sx={{textAlign:"center"}}>{logo.icons} </Box>
