@@ -11,10 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-import Switch from "@mui/material/Switch";
 // import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 const pages = ["Plans", "Go premium", "Diary"];
@@ -44,7 +41,7 @@ const settings = [
   "Logout",
 ];
 
-function ResponsiveAppBar({ cheak, change }: { cheak: boolean; change: any }) {
+function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -68,7 +65,7 @@ function ResponsiveAppBar({ cheak, change }: { cheak: boolean; change: any }) {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         {/* <Avatar alt="" src="public/images/Logo.jpg" /> */}
@@ -90,17 +87,7 @@ function ResponsiveAppBar({ cheak, change }: { cheak: boolean; change: any }) {
             }}
           >
             FitQuest
-            <Box>
-              <LightModeIcon/>
-            
-              <Switch
-                checked={cheak}
-                onChange={change}
-                inputProps={{ "aria-label": "controlled" }}
-              />
-              <DarkModeIcon/>
-             
-            </Box>
+           
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -156,17 +143,7 @@ function ResponsiveAppBar({ cheak, change }: { cheak: boolean; change: any }) {
               textDecoration: "none",
             }}
           >
-            <Box>
-              <LightModeIcon/>
             
-              <Switch
-                checked={cheak}
-                onChange={change}
-                inputProps={{ "aria-label": "controlled" }}
-              />
-              <DarkModeIcon/>
-             
-            </Box>
             FitQuest
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>

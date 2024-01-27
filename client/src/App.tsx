@@ -1,5 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Container} from "@mui/material"
+import { Box } from "@mui/material";
+
 import "./App.css";
 import AppBar from "./componets/Appbar";
 // import Card from "./components/Card";
@@ -7,7 +8,7 @@ import AppBar from "./componets/Appbar";
 import { useState } from "react";
 import Footer from "./componets/Footer";
 import LandingPage from "./pages/Landingpage";
-
+import DarkMode from "./componets/DarkMode";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -20,14 +21,14 @@ function App() {
   return (
     <>
       <ThemeProvider theme={AppTheme}>
-        <AppBar cheak={darkMode} change={() => setDarkMode(!darkMode)} />
-        
-          <Container>
-            <LandingPage />
+        <Box>
+          <AppBar />
+          <DarkMode cheak={darkMode} change={() => setDarkMode(!darkMode)} />
 
-            <Footer />
-          </Container>
-       
+          <LandingPage />
+
+          <Footer />
+        </Box>
       </ThemeProvider>
     </>
   );

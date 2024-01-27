@@ -18,13 +18,13 @@ const FooterResourses: string[] = [
 const FooterCompany: String[] = ["About us", "Careers", "Press"];
 
 const FooterLinks: string[] = [
-  "CommunityGuidelines",
-  "Feedback",
-  "Terms",
-  "Privacy",
-  "API",
-  "CookiesPreferences",
-  "AdChoices",
+  "Community Guidelines ",
+  " Feedback",
+  " Terms",
+  " Privacy",
+  " API",
+  " CookiesPreferences",
+  " AdChoices",
 ];
 
 interface Logos {
@@ -45,7 +45,7 @@ const Footer = () => {
     <>
       <Box>
         <Paper>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-around',width:"100vw" }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3,padding:"24px" }}>
               <Typography variant="h3">FitQuest</Typography>
               <Typography variant="body1">
@@ -55,7 +55,7 @@ const Footer = () => {
                 Start today <ArrowForwardIcon />
               </Button>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
               <Box  sx={{ display: 'flex', flexDirection: 'column' }}>
                 <Typography variant="h5">Product</Typography>
                 {FooterProducts.map((item, index) => (
@@ -83,17 +83,17 @@ const Footer = () => {
             </Box>
           </Box>
 
-          <Box sx={{ marginTop: 4 }}>
-            <Typography sx={{ display: 'flex', marginTop: 2 }}>
+          
+            <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",}}>
               <CopyrightIcon />
               2024Fitquest
-              {FooterLinks.map((item) => (
-                <ul>
-                  <li>{item.toUpperCase()}</li>
-                </ul>
-              ))}
-            </Typography>
-            <Box  sx={{ display: 'flex',alignItems:"center", justifyContent:'center', gap:2, marginTop: 2 }}>
+              {FooterLinks.map((item) => <ul><li style={{marginRight:8}}>{item}</li></ul>
+
+             )}
+            </Box>
+            
+          
+          <Box  sx={{ display: 'flex',alignItems:"center", justifyContent:'center', gap:2, marginTop: 2 }}>
               {Logos.map((logo) => (
                 <Box key={logo.id}>
                   <Box sx={{textAlign:"center"}}>{logo.icons} </Box>
@@ -101,7 +101,6 @@ const Footer = () => {
                 </Box>
               ))}
             </Box>
-          </Box>
         </Paper>
       </Box>
     </>
