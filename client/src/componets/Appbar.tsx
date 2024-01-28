@@ -11,8 +11,9 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { Outlet } from "react-router-dom";
 
-// import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+
 
 const pages = ["Plans", "Go premium", "Diary"];
 const settings = [
@@ -42,6 +43,7 @@ const settings = [
 ];
 
 function ResponsiveAppBar() {
+  
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -65,10 +67,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky">
+    <>
+     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        {/* <Avatar alt="" src="public/images/Logo.jpg" /> */}
           <Typography
             variant="h6"
             noWrap
@@ -76,8 +78,7 @@ function ResponsiveAppBar() {
             href=""
             sx={{
               mr: 2,
-              
-              
+
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
@@ -87,7 +88,6 @@ function ResponsiveAppBar() {
             }}
           >
             FitQuest
-           
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -126,7 +126,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-         
+
           <Typography
             variant="h5"
             noWrap
@@ -143,7 +143,6 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            
             FitQuest
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -156,7 +155,6 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
-            
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -192,6 +190,17 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+
+
+    <Outlet/>
+    
+    
+    
+    
+    
+    
+    </>
+   
   );
 }
 export default ResponsiveAppBar;

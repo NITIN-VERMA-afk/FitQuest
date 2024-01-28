@@ -45,18 +45,42 @@ const Footer = () => {
     <>
       <Box>
         <Paper>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-around',width:"100vw" }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3,padding:"24px" }}>
+          <Box
+            sx={{
+              display: "flex",
+
+              flexDirection: { xs: "column", md: "row" },
+              justifyContent: "space-around",
+              width: "100vw",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 3,
+                padding: "24px",
+              }}
+            >
               <Typography variant="h3">FitQuest</Typography>
               <Typography variant="body1">
                 Find your healthy, and your happy.
               </Typography>
-              <Button sx={{ width: '100%', md: { width: 48 } }} variant="outlined">
+              <Button
+                sx={{ width: "100%", md: { width: 48 } }}
+                variant="outlined"
+              >
                 Start today <ArrowForwardIcon />
               </Button>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-              <Box  sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography variant="h5">Product</Typography>
                 {FooterProducts.map((item, index) => (
                   <ul key={index}>
@@ -64,7 +88,13 @@ const Footer = () => {
                   </ul>
                 ))}
               </Box>
-              <Box sx={{ display: 'flex', flexDirection: 'column',alignItems: 'center' }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <Typography variant="h5">Resources</Typography>
                 {FooterResourses.map((item, index) => (
                   <ul key={index}>
@@ -72,7 +102,13 @@ const Footer = () => {
                   </ul>
                 ))}
               </Box>
-              <Box sx={{ display: 'flex', flexDirection: 'column',alignItems: 'center' }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <Typography variant="h5">Company</Typography>
                 {FooterCompany.map((item, index) => (
                   <ul key={index}>
@@ -83,24 +119,38 @@ const Footer = () => {
             </Box>
           </Box>
 
-          
-            <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",}}>
-              <CopyrightIcon />
-              2024Fitquest
-              {FooterLinks.map((item) => <ul><li style={{marginRight:8}}>{item}</li></ul>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CopyrightIcon />
+            2024Fitquest
+            {FooterLinks.map((item) => (
+              <ul>
+                <li style={{ marginRight: 8 }}>{item}</li>
+              </ul>
+            ))}
+          </Box>
 
-             )}
-            </Box>
-            
-          
-          <Box  sx={{ display: 'flex',alignItems:"center", justifyContent:'center', gap:2, marginTop: 2 }}>
-              {Logos.map((logo) => (
-                <Box key={logo.id}>
-                  <Box sx={{textAlign:"center"}}>{logo.icons} </Box>
-                  {logo.name}
-                </Box>
-              ))}
-            </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 2,
+              marginTop: 2,
+            }}
+          >
+            {Logos.map((logo) => (
+              <Box key={logo.id}>
+                <Box sx={{ textAlign: "center" }}>{logo.icons} </Box>
+                {logo.name}
+              </Box>
+            ))}
+          </Box>
         </Paper>
       </Box>
     </>

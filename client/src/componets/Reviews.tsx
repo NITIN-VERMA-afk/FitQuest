@@ -23,7 +23,7 @@ const ReviewSection = () => {
   return (
     <>
     
-      <Typography variant="h4">{reviewsData[currentReviewIndex].review}</Typography>
+      <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }} variant="h4">{reviewsData[currentReviewIndex].review}</Typography>
       <Typography variant="h5">{reviewsData[currentReviewIndex].name}</Typography>
       
     </>

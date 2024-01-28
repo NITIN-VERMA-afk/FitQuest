@@ -4,14 +4,24 @@ import { Box } from "@mui/material";
 
 import Switch from "@mui/material/Switch";
 
-const DarkModebar = ({ cheak, change }: { cheak: boolean,change: any }) => {
+const DarkModebar = ({ check, change }: { check: boolean; change: any }) => {
   return (
     <div>
-      <Box sx={{position:"fixed",color:"#FB8B24"}}>
+      <Box
+        sx={{
+          position: "fixed",
+          color: "#FB8B24",
+
+          right: 0,
+          padding: "10px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         <LightModeIcon />
 
         <Switch
-          checked={cheak}
+          checked={check}
           onChange={change}
           inputProps={{ "aria-label": "controlled" }}
         />
