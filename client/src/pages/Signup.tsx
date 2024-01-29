@@ -56,14 +56,14 @@ function Signup() {
               />
               <Typography variant="body2"></Typography>
               <Button sx={{width:"100%"}} variant="contained" size="large">
-                Signup{" "}
+                Signup
               </Button>
               <Typography>or</Typography>
               <Button sx={{width:"100%",marginBottom:"6%"}} variant="contained">
                 <GoogleIcon /> Continue with google
               </Button>
               <Button sx={{width:"100%"}} variant="contained" size="medium">
-                {" "}
+                
                 <FacebookIcon /> Continue with Facebook
               </Button>
             </form>

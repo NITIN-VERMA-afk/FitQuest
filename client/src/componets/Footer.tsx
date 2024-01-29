@@ -15,7 +15,7 @@ const FooterResourses: string[] = [
   "Contact us",
   "Support Center",
 ];
-const FooterCompany: String[] = ["About us", "Careers", "Press"];
+const FooterCompany: String[] = ["About us", "Careers", "Press","info"];
 
 const FooterLinks: string[] = [
   "Community Guidelines ",
@@ -78,6 +78,7 @@ const Footer = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                
               }}
             >
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -128,11 +129,9 @@ const Footer = () => {
           >
             <CopyrightIcon />
             2024Fitquest
-            {FooterLinks.map((item) => (
-              <ul>
-                <li style={{ marginRight: 8 }}>{item}</li>
-              </ul>
-            ))}
+            {FooterLinks.map((item) => item
+             
+            )}
           </Box>
 
           <Box
