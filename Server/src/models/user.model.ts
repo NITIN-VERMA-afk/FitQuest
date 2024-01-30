@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
       unique: true,
       trim: true,
     },
+    rewards:{
+        type:Number,
+        default:0,
+    }
   },
   { timestamps: true }
 );
