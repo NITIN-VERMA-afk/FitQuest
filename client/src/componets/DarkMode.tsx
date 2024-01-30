@@ -11,11 +11,14 @@ const DarkModebar = ({ check, change }: { check: boolean; change: any }) => {
         sx={{
           position: "fixed",
           color: "#FB8B24",
+          right:20,
+        
+          
 
-          right: 0,
+        
           padding: "10px",
-          display: "flex",
-          alignItems: "center",
+         
+          top:90,
         }}
       >
         <LightModeIcon />

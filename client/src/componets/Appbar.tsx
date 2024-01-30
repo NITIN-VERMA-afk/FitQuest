@@ -12,10 +12,11 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
-const pages = ["Plans", "Go premium", "Diary"];
+const pages = ["Plans", "Go premium", "Diary","Login"];
 const settings = [
   "Profile",
   "Dashboard",
@@ -121,7 +122,12 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <NavLink style={isActive=>({
+                      color:isActive?"red":"white",
+                      textDecoration:"none",
+                    })} to={page==="home"?"/":`/${page}`}>{page}</NavLink>
+                    </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -152,7 +158,8 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <NavLink to={page==="home"?"/":`/${page}`}>{page}</NavLink>
+               
               </Button>
             ))}
           </Box>

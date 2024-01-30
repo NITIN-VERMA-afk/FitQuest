@@ -10,7 +10,7 @@ type FormValues = {
   password: string;
 };
 
-function LoginPage() {
+function Login() {
   const backgroundImageUrl =
     "https://i.pinimg.com/474x/cd/a7/0a/cda70a94ea9fb1293a52beb49c5232b8.jpg";
 
@@ -111,4 +111,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default Login;

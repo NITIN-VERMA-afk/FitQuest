@@ -25,7 +25,7 @@ const LandingPage = () => {
             width: "100vw",
             height: "500px",
              
-            marginTop: { sm: '20px', md: '0' },
+        
 
             gap: 2,
           }}
