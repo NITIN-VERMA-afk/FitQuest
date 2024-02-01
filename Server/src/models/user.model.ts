@@ -7,18 +7,15 @@ const userSchema = new mongoose.Schema(
       required: [true, "plz provide  email"],
       unique: true,
       lowercase: true,
-      trim: true,
+      
     },
     password: {
       type: String,
       require: [true, "plz provide a password"],
       unique: true,
-      trim: true,
+      
     },
-    rewards:{
-        type:Number,
-        default:0,
-    }
+   
   },
   { timestamps: true }
 );
