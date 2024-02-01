@@ -1,1 +1,1 @@
-export const DB_NAME="Fitquest"
+export const DB_NAME="FITQUEST"
