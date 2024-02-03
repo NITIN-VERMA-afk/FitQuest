@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-const pages = ["Plans", "Go premium", "Diary","Login"];
+const pages = ["Plans", "Gopremium", "Diary","Login"];
 const settings = [
   "Profile",
   "Dashboard",
@@ -167,7 +167,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="fitquest" src="public/images/Logo.jpg" />
+                <Avatar alt="fitquest" src="/images/Logo.jpg" />
               </IconButton>
             </Tooltip>
 

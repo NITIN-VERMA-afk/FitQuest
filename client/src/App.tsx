@@ -14,6 +14,7 @@ import { Routes, Route } from "react-router-dom";
 import Plans from "./pages/Plans";
 import LoginPage from "./pages/Login";
 import NoPage from "./pages/NoPage";
+import Premiumplan from "./pages/Premiumplan";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -32,7 +33,9 @@ function App() {
             <Route path="/" element={<LandingPage />}></Route>
             <Route path="/plans" element={<Plans />}></Route>
             <Route path="/Login" element={<LoginPage />}></Route>
+            <Route path="/Gopremium" element={<Premiumplan/>}></Route>
             <Route path="/signup" element={<Signup />}></Route>
+            
           </Route>
           <Route path="*" element={<NoPage />}></Route>
         </Routes>
