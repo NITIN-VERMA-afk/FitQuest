@@ -51,7 +51,7 @@ const SocialMediaLinks: Logos[] = [
 
 const Footer = () => {
   return (
-    <Box component="footer" mt={4}>
+    <Box component="footer" mb={0}>
       <Paper>
         <Box
           sx={{

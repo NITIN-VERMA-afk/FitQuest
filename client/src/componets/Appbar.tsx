@@ -124,8 +124,9 @@ function ResponsiveAppBar() {
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
                     <NavLink style={isActive=>({
-                      color:isActive?"red":"white",
-                      textDecoration:"none",
+                      color:isActive?"white":"white",
+                      backgroundcolor:isActive?"blue":"white",
+                      textDecoration: isActive ? "none" : "none",
                     })} to={page==="home"?"/":`/${page}`}>{page}</NavLink>
                     </Typography>
                 </MenuItem>
@@ -158,7 +159,11 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                <NavLink to={page==="home"?"/":`/${page}`}>{page}</NavLink>
+                <NavLink style={isActive=>({
+                      color:isActive?"white":"white",
+                    
+                      textDecoration: isActive ? "none" : "none",
+                    })} to={page==="home"?"/":`/${page}`}>{page}</NavLink>
                
               </Button>
             ))}
