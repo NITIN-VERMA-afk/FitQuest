@@ -99,12 +99,13 @@ const Diary = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            marginTop:"2px"
+            marginTop: "2px",
           }}
-        ><Button variant="contained">
-        <NotesIcon /> Complete Diary
-      </Button></Box>
-        
+        >
+          <Button variant="contained">
+            <NotesIcon /> Complete Diary
+          </Button>
+        </Box>
       </Paper>
     </>
   );

@@ -4,6 +4,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import { Link } from "react-router-dom";
 
 type FormValues = {
   email: string;
@@ -98,12 +99,12 @@ function Login() {
                 variant="contained"
                 size="medium"
               >
-                {" "}
+               
                 <FacebookIcon /> Continue with Facebook
               </Button>
             </form>
           </Box>
-          <Box sx={{ alignItems: "center" }}>not a member yet?sign up now!</Box>
+          <Box sx={{ alignItems: "center" }}>not a member yet? <Link style={{textDecoration:"none",color:"white"}} to='/signup'>sign up now! </Link> </Box>
         </Box>
         <DevTool control={control} />
       </Paper>

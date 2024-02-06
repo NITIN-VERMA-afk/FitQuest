@@ -1,80 +1,61 @@
 import { useState, useEffect } from "react";
 import httpCommon from "../Api/http-common";
-import { Typography, Paper, Box, Button, Grid } from "@mui/material";
+import { Typography, Paper, Box, Grid } from "@mui/material";
 import ExerciseCard from "../componets/ExersiseCard";
 
 interface ExerciseData {
   id: number;
   name: string;
+  instructions: string;
+  type: string;
+  equipment: string;
+  difficulty: string;
 }
 
 const Exercise = () => {
-  const [data, setdata] = useState<ExerciseData[] | null>(null);
-  const [muscle, setmuscledata] = useState("");
-
-  const searchExercise = () => {
-    setmuscledata(muscle.toLowerCase());
-    alert("value is " + muscle);
-  };
+  const [data, setData] = useState<ExerciseData[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await httpCommon.get(`+${muscle}`);
-        setdata(response.data);
-        console.log(response);
+        const response = await httpCommon.get(+`biceps`);
+        setData(response.data);
+        console.log(setData);
       } catch (error) {
-        console.log("api error", error);
+        console.log(`api error:`, error);
       }
     };
     fetchData();
-  }, [muscle]);
+  }, []);
 
   return (
-    <>
-      <Paper>
-        <Typography variant="h1">Exersise</Typography>
-        <Typography textAlign={"center"} variant="h3">
-          select musle group u want to target
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <form action="get">
-            <input
-              type="search"
-              onChange={(event) => {
-                setmuscledata(event.target.value);
-              }}
-              placeholder="text"
-              required
-            />
-            <Button onClick={searchExercise}>search exercise</Button>
-          </form>
-        </Box>
-        {data && (
-          <div>
-            <Grid container spacing={2}>
-              {data.map((exercise: any) => (
-                <Grid item key={exercise.id} xs={12} sm={6} md={4} lg={3}>
-                  <ExerciseCard
-                    name={exercise.name}
-                    instructions={exercise.instructions}
-                    type={exercise.type}
-                    equipment={exercise.equipment}
-                    difficulty={exercise.difficulty}
-                  />
-                </Grid>
-              ))}
+    <Paper>
+      <Typography variant="h1">Exercise</Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+        }}
+      ></Box>
+      {data && (
+        <Grid container spacing={2}>
+          {data.map((exercise: ExerciseData) => (
+            <Grid item key={exercise.id} xs={12} sm={6} md={4} lg={3}>
+              <ExerciseCard
+                key={exercise.id}
+                name={exercise.name}
+                type={exercise.type}
+                instructions={exercise.instructions}
+                equipment={exercise.equipment}
+                difficulty={exercise.difficulty}
+              />
             </Grid>
-          </div>
-        )}
-      </Paper>
-    </>
+          ))}
+        </Grid>
+      )}
+    </Paper>
   );
 };
 

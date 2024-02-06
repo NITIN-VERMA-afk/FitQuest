@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-const pages = ["Plans","Exercise", "Gopremium", "Diary","Login"];
+const pages = ["Plans","Exercise", "Gopremium", "Diary","Login","Leaderboard"];
 const settings = [
   "Profile",
   "Dashboard",
@@ -88,7 +88,12 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            FitQuest
+            
+           <NavLink style={isActive=>({
+                      color:isActive?"white":"white",
+                      backgroundcolor:isActive?"blue":"white",
+                      textDecoration: isActive ? "none" : "none",
+                    })} to='/'> FitQuest</NavLink> 
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -150,7 +155,11 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            FitQuest
+           <NavLink style={isActive=>({
+                      color:isActive?"white":"white",
+                      backgroundcolor:isActive?"blue":"white",
+                      textDecoration: isActive ? "none" : "none",
+                    })} to='/'> FitQuest</NavLink> 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

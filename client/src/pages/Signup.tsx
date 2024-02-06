@@ -2,9 +2,11 @@ import { Box, Typography, Paper, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
+import { Link } from "react-router-dom";
 
 function Signup() {
     const backgroundImageUrl = 'https://i.pinimg.com/474x/cd/a7/0a/cda70a94ea9fb1293a52beb49c5232b8.jpg';
+  
 
 
   return (
@@ -68,7 +70,7 @@ function Signup() {
               </Button>
             </form>
           </Box>
-          <Box sx={{ alignItems: "center" }}>already a user?loginin up now!</Box>
+          <Box sx={{ alignItems: "center" }}>already a user? <Link style={{textDecoration:"none",color:"white"}} to='/Login'>Login now!</Link>  </Box>
         </Box>
       </Paper>
     </>

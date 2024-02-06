@@ -17,6 +17,7 @@ import NoPage from "./pages/NoPage";
 import Premiumplan from "./pages/Premiumplan";
 import Diary from "./pages/Diary";
 import Exercise from "./pages/Exercise";
+import Leaderboard from "./pages/Leaderboard";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -39,6 +40,7 @@ function App() {
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/Diary" element={<Diary />}></Route>
             <Route path="/Exercise" element={<Exercise />}></Route>
+            <Route path="/Leaderboard" element={<Leaderboard />}></Route>
           </Route>
           <Route path="*" element={<NoPage />}></Route>
         </Routes>
