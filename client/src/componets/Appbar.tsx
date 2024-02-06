@@ -16,7 +16,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-const pages = ["Plans", "Gopremium", "Diary","Login"];
+const pages = ["Plans","Exercise", "Gopremium", "Diary","Login"];
 const settings = [
   "Profile",
   "Dashboard",
