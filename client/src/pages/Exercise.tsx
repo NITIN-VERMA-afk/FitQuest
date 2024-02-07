@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import httpCommon from "../Api/http-common";
-import { Typography, Paper, Box, Grid } from "@mui/material";
+import { Typography, Paper, Box, Grid, CircularProgress } from "@mui/material";
 import ExerciseCard from "../componets/ExersiseCard";
 
 interface ExerciseData {
@@ -14,15 +14,18 @@ interface ExerciseData {
 
 const Exercise = () => {
   const [data, setData] = useState<ExerciseData[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await httpCommon.get(+`biceps`);
+        
+        const response = await httpCommon.get(+`biceps`); 
         setData(response.data);
-        console.log(setData);
+        setLoading(false); 
       } catch (error) {
         console.log(`api error:`, error);
+        setLoading(false); 
       }
     };
     fetchData();
@@ -39,24 +42,31 @@ const Exercise = () => {
           alignContent: "center",
         }}
       ></Box>
-      {data && (
-        <Grid container spacing={2}>
-          {data.map((exercise: ExerciseData) => (
-            <Grid item key={exercise.id} xs={12} sm={6} md={4} lg={3}>
-              <ExerciseCard
-                key={exercise.id}
-                name={exercise.name}
-                type={exercise.type}
-                instructions={exercise.instructions}
-                equipment={exercise.equipment}
-                difficulty={exercise.difficulty}
-              />
-            </Grid>
-          ))}
-        </Grid>
+      {loading ? ( 
+        <Box sx={{ display: "flex", justifyContent: "center", paddingTop: 20 }}>
+          <CircularProgress />
+        </Box>
+      ) : (
+        data && (
+          <Grid container spacing={2}>
+            {data.map((exercise: ExerciseData) => (
+              <Grid item key={exercise.id} xs={12} sm={6} md={4} lg={3}>
+                <ExerciseCard
+                  key={exercise.id}
+                  name={exercise.name}
+                  type={exercise.type}
+                  instructions={exercise.instructions}
+                  equipment={exercise.equipment}
+                  difficulty={exercise.difficulty}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        )
       )}
     </Paper>
   );
 };
 
 export default Exercise;
+

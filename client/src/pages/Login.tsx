@@ -25,7 +25,8 @@ function Login() {
   const { errors } = formState;
 
   const onSubmit = (data: FormValues) => {
-    console.log("formdata",data);
+    console.log(data);
+    
   };
   return (
     <>
@@ -42,7 +43,6 @@ function Login() {
         >
           <Box
             sx={{
-              width: "35%",
               background: `url(${backgroundImageUrl}) center/cover no-repeat`,
 
               display: "flex",
@@ -59,7 +59,7 @@ function Login() {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              action=""
+              action="post"
             >
               <Typography variant="h4">Member Login</Typography>
               <TextField
@@ -84,7 +84,7 @@ function Login() {
               />
               <Typography variant="body2">forget possword?</Typography>
               <Button sx={{ width: "100%" }} variant="contained" size="large">
-                Log in{" "}
+                Log in
               </Button>
               <Typography>or</Typography>
               <Button
@@ -99,12 +99,19 @@ function Login() {
                 variant="contained"
                 size="medium"
               >
-               
                 <FacebookIcon /> Continue with Facebook
               </Button>
             </form>
           </Box>
-          <Box sx={{ alignItems: "center" }}>not a member yet? <Link style={{textDecoration:"none",color:"white"}} to='/signup'>sign up now! </Link> </Box>
+          <Box sx={{ alignItems: "center" }}>
+            not a member yet?
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/signup"
+            >
+              sign up now!
+            </Link>
+          </Box>
         </Box>
         <DevTool control={control} />
       </Paper>
