@@ -5,13 +5,34 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 type FormValues = {
   email: string;
   password: string;
 };
 
-function Login() {
+function Login({ setLoginUser}) {
+  const Navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const Login = () => {
+    axios
+      .post("http://localhost:8000/Login", user)
+      .then((res) => {
+        alert(res.data.message);
+        setLoginUser(res.data.user);
+        Navigate("/");
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+      });
+  };
   const backgroundImageUrl =
     "https://i.pinimg.com/474x/cd/a7/0a/cda70a94ea9fb1293a52beb49c5232b8.jpg";
 
@@ -25,8 +46,8 @@ function Login() {
   const { errors } = formState;
 
   const onSubmit = (data: FormValues) => {
+    setUser(data);
     console.log(data);
-    
   };
   return (
     <>
@@ -83,7 +104,12 @@ function Login() {
                 helperText={errors.password?.message}
               />
               <Typography variant="body2">forget possword?</Typography>
-              <Button sx={{ width: "100%" }} variant="contained" size="large">
+              <Button
+                type="submit"
+                sx={{ width: "100%" }}
+                variant="contained"
+                size="large"
+              >
                 Log in
               </Button>
               <Typography>or</Typography>
