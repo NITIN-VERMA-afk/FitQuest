@@ -23,7 +23,7 @@ function Login({ setLoginUser}) {
 
   const Login = () => {
     axios
-      .post("http://localhost:8000/Login", user)
+      .post("http://localhost:8000/api/v1/users/login", user)
       .then((res) => {
         alert(res.data.message);
         setLoginUser(res.data.user);
@@ -44,10 +44,11 @@ function Login({ setLoginUser}) {
   });
   const { register, handleSubmit, control, formState } = form;
   const { errors } = formState;
-
+  
   const onSubmit = (data: FormValues) => {
-    setUser(data);
-    console.log(data);
+    // setUser(data);
+    // console.log(data);
+    Login(data);
   };
   return (
     <>

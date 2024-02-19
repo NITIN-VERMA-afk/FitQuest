@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import axios from "axios";
-import { useState } from "react";
+// import { useState } from "react";
 
 type FormValues = {
   email: string;
@@ -14,13 +14,23 @@ type FormValues = {
 };
 
 function Signup() {
-  const [user, setuser] = useState({ email: "", password: "" });
+  // const [user, setuser] = useState({ email: "", password: "" });
+  const form = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const { register, handleSubmit, control, formState } = form;
+  const { errors } = formState;
+   const backgroundImageUrl =
+    "https://i.pinimg.com/474x/cd/a7/0a/cda70a94ea9fb1293a52beb49c5232b8.jpg";
 
-  const Register = () => {
+  const Register = (user:any) => {
     const { email, password } = user;
     if (email && password) {
       axios
-        .post("http://localhost:8000/Register", { email, password })
+        .post("http://localhost:8000/api/v1/users/register", user)
         .then((res) => {
           console.log("Registration successful:", res.data);
         })
@@ -31,22 +41,17 @@ function Signup() {
       alert("Invalid user");
     }
   };
+ 
 
-  const backgroundImageUrl =
-    "https://i.pinimg.com/474x/cd/a7/0a/cda70a94ea9fb1293a52beb49c5232b8.jpg";
+ 
 
-  const form = useForm<FormValues>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-  const { register, handleSubmit, control, formState } = form;
-  const { errors } = formState;
+
+ 
 
   const onSubmit = (data: FormValues) => {
-    setuser(data);
-    console.log(data);
+    // setuser(data);
+    // console.log(data);
+    Register(data);
   };
 
   return (
@@ -60,6 +65,8 @@ function Signup() {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
+            
+           
           }}
         >
           <Box

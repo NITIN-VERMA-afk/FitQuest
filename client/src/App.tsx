@@ -15,9 +15,13 @@ import Diary from "./pages/Diary";
 import Exercise from "./pages/Exercise";
 import Leaderboard from "./pages/Leaderboard";
 
+interface User {
+  _id:string;
+}
+
 function App() {
   const [darkMode, setDarkMode] = useState(true);
-  const [user, setLoginUser] = useState({});
+  const [user, setLoginUser] = useState<User>({_id:''});
   const AppTheme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -32,7 +36,7 @@ function App() {
           <Route path="/" element={<AppBar />}>
             <Route
               path="/"
-              element={user && user._id ? <LandingPage /> : <LoginPage />}>
+              element={user && user._id ? <LandingPage /> : <LoginPage  setLoginUser={setLoginUser}/>}>
                </Route>
             <Route path="/plans" element={<Plans />}></Route>
             <Route

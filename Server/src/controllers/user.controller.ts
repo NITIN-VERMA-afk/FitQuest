@@ -73,6 +73,7 @@ const Register = asyncHandler(async (req: Request, res: Response) => {
 
 const Login = asyncHandler(async (req: Request, res: Response) => {
   const { email, password } = req.body;
+  console.log(req.body)
 
   const user = await User.findOne({ email, password });
 
