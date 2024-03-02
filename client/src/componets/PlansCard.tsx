@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea,Button } from '@mui/material';
 
 
 
@@ -28,6 +28,7 @@ export default function ActionAreaCard(props:any) {
           <Typography variant="body2" color="text.secondary">
            {props.duration}
           </Typography>
+          <Button>Buy plan</Button>
         </CardContent>
       </CardActionArea>
     </Card>

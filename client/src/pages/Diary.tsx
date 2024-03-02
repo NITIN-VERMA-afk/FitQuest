@@ -5,8 +5,52 @@ import AddIcon from "@mui/icons-material/Add";
 import PieChartOutlineIcon from "@mui/icons-material/PieChartOutline";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import NotesIcon from "@mui/icons-material/Notes";
+import { useState } from "react";
+import Todoitem from "../componets/Todoitem";
+
+interface Task {
+  id: number;
+  text: string;
+  completed: boolean;
+}
 
 const Diary = () => {
+  const [text, setText] = useState<string>("");
+  const [breakfastTasks, setBreakfastTasks] = useState<Task[]>([]);
+  const [lunchTasks, setLunchTasks] = useState<Task[]>([]);
+  const [dinnerTasks, setDinnerTasks] = useState<Task[]>([]);
+  const [snacksTasks, setSnacksTasks] = useState<Task[]>([]);
+  const [exerciseTasks, setExerciseTasks] = useState<Task[]>([]);
+  const [waterTasks, setWaterTasks] = useState<Task[]>([]);
+
+  const addTask = (text: string, setTasks: React.Dispatch<React.SetStateAction<Task[]>>) => {
+    const newTask: Task = {
+      id: Date.now(),
+      text,
+      completed: false,
+    };
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+    setText("");
+  };
+
+  const deleteTask = (id: number, setTasks: React.Dispatch<React.SetStateAction<Task[]>>) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+  };
+
+  const toggleComplete = (
+    id: number,
+    setTasks: React.Dispatch<React.SetStateAction<Task[]>>
+  ) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, completed: !task.completed };
+        }
+        return task;
+      })
+    );
+  };
+
   return (
     <>
       <Paper>
@@ -44,39 +88,141 @@ const Diary = () => {
         >
           <Box>
             <Typography>Breakfast</Typography>
-            <Button>
-              ADD Food <AddIcon />
-            </Button>
+            <Box>
+              {breakfastTasks.map((task) => (
+                <Todoitem
+                  key={task.id}
+                  task={task}
+                  deleteTask={() => deleteTask(task.id, setBreakfastTasks)}
+                  toggleComplete={() => toggleComplete(task.id, setBreakfastTasks)}
+                />
+              ))}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addTask(text, setBreakfastTasks);
+                }}
+              />
+              <Button onClick={() => addTask(text, setBreakfastTasks)}>
+                ADD Food<AddIcon/>
+              </Button>
+            </Box>
           </Box>
           <Box>
             <Typography>Lunch</Typography>
-            <Button>
-              ADD Food <AddIcon />
-            </Button>
+            <Box>
+              {lunchTasks.map((task) => (
+                <Todoitem
+                  key={task.id}
+                  task={task}
+                  deleteTask={() => deleteTask(task.id, setLunchTasks)}
+                  toggleComplete={() => toggleComplete(task.id, setLunchTasks)}
+                />
+              ))}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addTask(text, setLunchTasks);
+                }}
+              />
+              <Button onClick={() => addTask(text, setLunchTasks)}>
+                ADD Food<AddIcon />
+              </Button>
+            </Box>
           </Box>
           <Box>
             <Typography>Dinner</Typography>
-            <Button>
-              Add Food <AddIcon />
-            </Button>
+            <Box>
+              {dinnerTasks.map((task) => (
+                <Todoitem
+                  key={task.id}
+                  task={task}
+                  deleteTask={() => deleteTask(task.id, setDinnerTasks)}
+                  toggleComplete={() => toggleComplete(task.id, setDinnerTasks)}
+                />
+              ))}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addTask(text, setDinnerTasks);
+                }}
+              />
+              <Button onClick={() => addTask(text, setDinnerTasks)}>
+                ADD Food <AddIcon />
+              </Button>
+            </Box>
           </Box>
           <Box>
             <Typography>Snacks</Typography>
-            <Button>
-              Add Food <AddIcon />
-            </Button>
+            <Box>
+              {snacksTasks.map((task) => (
+                <Todoitem
+                  key={task.id}
+                  task={task}
+                  deleteTask={() => deleteTask(task.id, setSnacksTasks)}
+                  toggleComplete={() => toggleComplete(task.id, setSnacksTasks)}
+                />
+              ))}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addTask(text, setSnacksTasks);
+                }}
+              />
+              <Button onClick={() => addTask(text, setSnacksTasks)}>
+                ADD Food <AddIcon />
+              </Button>
+            </Box>
           </Box>
           <Box>
             <Typography>Exercise</Typography>
-            <Button>
-              ADD EXercise <AddIcon />
-            </Button>
+            <Box>
+              {exerciseTasks.map((task) => (
+                <Todoitem
+                  key={task.id}
+                  task={task}
+                  deleteTask={() => deleteTask(task.id,setExerciseTasks)}
+                  toggleComplete={() => toggleComplete(task.id, setExerciseTasks)}
+                />
+              ))}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addTask(text, setExerciseTasks);
+                }}
+              />
+              <Button onClick={() => addTask(text, setExerciseTasks)}>
+                ADD EXercise <AddIcon />
+              </Button>
+            </Box>
           </Box>
           <Box>
             <Typography>Water</Typography>
-            <Button>
-              ADD water <AddIcon />
-            </Button>
+            <Box>
+              {waterTasks.map((task) => (
+                <Todoitem
+                  key={task.id}
+                  task={task}
+                  deleteTask={() => deleteTask(task.id, setWaterTasks)}
+                  toggleComplete={() => toggleComplete(task.id, setWaterTasks)}
+                />
+              ))}
+              <input
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addTask(text, setWaterTasks);
+                }}
+              />
+              <Button onClick={() => addTask(text, setWaterTasks)}>
+                ADD water <AddIcon />
+              </Button>
+            </Box>
           </Box>
         </Box>
         <Box
@@ -112,3 +258,6 @@ const Diary = () => {
 };
 
 export default Diary;
+
+
+

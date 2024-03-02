@@ -1,6 +1,7 @@
+import { useState, Dispatch, SetStateAction } from 'react';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import DarkMode from "./componets/DarkMode";
-import { useState } from "react";
+
 import Signup from "./pages/Signup";
 import "./App.css";
 import AppBar from "./componets/Appbar";
@@ -14,14 +15,15 @@ import Premiumplan from "./pages/Premiumplan";
 import Diary from "./pages/Diary";
 import Exercise from "./pages/Exercise";
 import Leaderboard from "./pages/Leaderboard";
+import Profile from "./pages/Profile";
 
 interface User {
-  _id:string;
+  _id: string;
 }
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
-  const [user, setLoginUser] = useState<User>({_id:''});
+  const [user, setLoginUser]: [User, Dispatch<SetStateAction<User>>] = useState<User>({ _id: "" });
   const AppTheme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -34,20 +36,24 @@ function App() {
         <DarkMode check={darkMode} change={() => setDarkMode(!darkMode)} />
         <Routes>
           <Route path="/" element={<AppBar />}>
-            <Route
-              path="/"
-              element={user && user._id ? <LandingPage /> : <LoginPage  setLoginUser={setLoginUser}/>}>
-               </Route>
+            <Route path="/" element={<LandingPage />}></Route>
             <Route path="/plans" element={<Plans />}></Route>
-            <Route
-              path="/Login"
-              element={<LoginPage setLoginUser={setLoginUser} />}
-            ></Route>
+            <Route path="/Login" element={<LoginPage setLoginUser={setLoginUser} />} />
             <Route path="/Gopremium" element={<Premiumplan />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/Diary" element={<Diary />}></Route>
             <Route path="/Exercise" element={<Exercise />}></Route>
             <Route path="/Leaderboard" element={<Leaderboard />}></Route>
+            <Route
+              path="/Profile"
+              element={
+                user && user._id ? (
+                  <Profile />
+                ) : (
+                  <LoginPage setLoginUser={setLoginUser} />
+                )
+              }
+            ></Route>
           </Route>
           <Route path="*" element={<NoPage />}></Route>
         </Routes>

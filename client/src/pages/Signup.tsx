@@ -65,6 +65,9 @@ function Signup() {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
+            backgroundImage: `url('https://i.pinimg.com/236x/9d/7c/af/9d7caf002efa649234adcec4aadb96fc.jpg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             
            
           }}
