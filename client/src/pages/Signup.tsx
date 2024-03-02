@@ -30,7 +30,7 @@ function Signup() {
     const { email, password } = user;
     if (email && password) {
       axios
-        .post("http://localhost:8000/api/v1/users/register", user)
+        .post("https://fit-quest-api.vercel.app/api/v1/users/register", user)
         .then((res) => {
           console.log("Registration successful:", res.data);
         })
